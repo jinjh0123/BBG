@@ -5,7 +5,7 @@ export const Section = (props: {
     children?: any
 }) => {
     return <div className={`${props.remove_top_padding === true ? "" : "pt-12"} pb-8 ${props.className}`}>
-        <div className="section-title text-3xl font-light text-[#4592ec] mb-4">{props.title}</div>
+        <div className="section-title text-3xl font-light text-teal-500 mb-4">{props.title}</div>
         {
             props.children
         }

@@ -1,10 +1,10 @@
 {
-  "name": "chacha-web",
+  "name": "bbg-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "rm -rf dist && parcel index.html --port 3000 --open",
-    "build": "rm -rf dist && rm -rf .parcel-cache && rm -rf .cache && parcel build index.html ./public/*.pdf --public-url https://jinjh0123.github.io/KoBBQ",
+    "build": "rm -rf dist && rm -rf .parcel-cache && rm -rf .cache && parcel build index.html ./public/*.pdf --public-url https://jinjh0123.github.io/BBG",
     "predeploy": "npm run build",
     "deploy": "gh-pages -f -d dist"
   },

@@ -1,29 +1,25 @@
 import { Section } from "../components/Section"
 
-const bibTex = '@article{jin-etal-2024-kobbq,<br/>\n\
-&emsp;&emsp;author = {Jin, Jiho and Kim, Jiseon and Lee, Nayeon and Yoo, Haneul and Oh, Alice and Lee, Hwaran},<br/>\n\
-&emsp;&emsp;title = {{K}o{BBQ}: {K}orean Bias Benchmark for Question Answering},<br/>\n\
-&emsp;&emsp;journal = {Transactions of the Association for Computational Linguistics},<br/>\n\
-&emsp;&emsp;volume = {12},<br/>\n\
-&emsp;&emsp;pages = {507-524},<br/>\n\
-&emsp;&emsp;year = {2024},<br/>\n\
-&emsp;&emsp;month = {05},<br/>\n\
-&emsp;&emsp;address = {Cambridge, MA},<br/>\n\
-&emsp;&emsp;publisher = {MIT Press},<br/>\n\
-&emsp;&emsp;issn = {2307-387X},<br/>\n\
-&emsp;&emsp;doi = {10.1162/tacl_a_00661},<br/>\n\
-&emsp;&emsp;url = {https://doi.org/10.1162/tacl\_a\_00661},<br/>\n\
-&emsp;&emsp;eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl\_a\_00661/2369542/tacl\_a\_00661.pdf}<br/>\n\
+const bibTex = '@misc{jin2025socialbiasbenchmarkgeneration,<br/>\n\
+&emsp;&emsp;title={Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations},<br/>\n\
+&emsp;&emsp;author={Jiho Jin and Woosung Kang and Junho Myung and Alice Oh},<br/>\n\
+&emsp;&emsp;year={2025},<br/>\n\
+&emsp;&emsp;eprint={2503.06987},<br/>\n\
+&emsp;&emsp;archivePrefix={arXiv},<br/>\n\
+&emsp;&emsp;primaryClass={cs.CL},<br/>\n\
+&emsp;&emsp;url={https://arxiv.org/abs/2503.06987}<br/>\n\
 }'
+
 
 export const Cite = () => {
     return <Section title="Citing This Work">
         <div className="border-y-[1px] border-slate-400 py-3">
             <div>
-                Jiho Jin, Jiseon Kim, Nayeon Lee, Haneul Yoo, Alice Oh, Hwaran Lee;
-                KoBBQ: Korean Bias Benchmark for Question Answering.
-                <i>Transactions of the Association for Computational Linguistics</i> 2024; 12 507–524.
-                doi: https://doi.org/10.1162/tacl_a_00661
+                Jiho Jin, Woosung Kang, Junho Myung, and Alice Oh.
+                2025.
+                Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations.
+                In <i>Findings of the Association for Computational Linguistics: ACL 2025</i>.
+                Association for Computational Linguistics.
             </div>
         </div>
         <div className="mt-4">

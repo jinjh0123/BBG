@@ -13,25 +13,18 @@ const members = [
         // note: "*Research intern at NAVER AI Lab"
     },
     {
-        name: "Jiseon Kim",
+        name: "Woosung Kang",
         affiliation: "KAIST",
         // role: "PhD candidate",
-        // thumb: require("../../public/images/thumb.jpg"),
-        web: "https://hikoseon12.github.io/"
-    },
-    {
-        name: "Nayeon Lee",
-        affiliation: "KAIST",
-        // role: "Associate Professor",
         // thumb: require("../../public/images/thumb.jpg"),
         // web: ""
     },
     {
-        name: "Haneul Yoo",
+        name: "Junho Myung",
         affiliation: "KAIST",
-        // role: "PhD candidate",
+        // role: "Associate Professor",
         // thumb: require("../../public/images/thumb.jpg"),
-        web: "https://haneul-yoo.github.io/"
+        web: "https://junhomyung.github.io/"
     },
     {
         name: "Alice Oh",
@@ -39,13 +32,6 @@ const members = [
         // role: "Professor",
         // thumb: require("../../public/images/thumb.jpg"),
         web: "https://aliceoh9.github.io/"
-    },
-    {
-        name: "Hwaran Lee",
-        affiliation: "NAVER AI Lab",
-        // role: "Lead Research Scientist",
-        // thumb: require("../../public/images/thumb.jpg"),
-        web: "https://hwaranlee.github.io/"
     }
 ]
 
@@ -107,7 +93,7 @@ export const Members = () => {
         }
         </div>
         <div className="mt-8 flex items-center gap-6 gap-y-8 flex-wrap">
-            <img className="w-[200px]" alt="NAVER logo" src={require("../../public/images/logos/ai_lab_logo_vertical.png")} width={1728} height={552}/>
+            <img className="w-[200px]" alt="NAVER logo" src={require("../../public/images/logos/kaist_logo.png")} width={1728} height={552}/>
             <div className="uilab-logo">
                 <div className="logo-drawing-container" style={styles.logodrawingcontainer}>
                     <div className="logo-drawing" ref={logoRef} style={styles.logodrawing}></div>

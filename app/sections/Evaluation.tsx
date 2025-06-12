@@ -3,171 +3,157 @@ import React from "react"
 import Plot from 'react-plotly.js'
 
 export const Evaluation = () => {
-    const amb_claudev1 = {
-        x: [0.2702], y: [0.2579],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#EB7FB0' },
-        legendgroup: 'Claude-v1',
-        name: 'Claude-v1',
-        showlegend: false
-    }
-
-    const amb_claudev2 = {
-        x: [0.5503], y: [0.1556],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#E74C3C' },
-        legendgroup: 'Claude-v2',
-        name: 'Claude-v2',
-        showlegend: false
-    }
-
-    const amb_gpt35 = {
-        x: [0.6194], y: [0.1653],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#F39C12' },
-        legendgroup: 'GPT-3.5',
-        name: 'GPT-3.5',
-        showlegend: false
-    }
-
-    const amb_gpt4 = {
-        x: [0.9650], y: [0.0256],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#F7DC6F' },
-        legendgroup: 'GPT-4',
-        name: 'GPT-4',
-        showlegend: false
-    }
-
-    const amb_clovax = {
-        x: [0.8603], y: [0.0576],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#4EBA96' },
-        legendgroup: 'CLOVA-X',
-        name: 'CLOVA-X',
-        showlegend: false
-    }
-
-    const amb_koalpaca = {
-        x: [0.1732], y: [0.0172],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#3498DB' },
-        legendgroup: 'KoAlpaca',
-        name: 'KoAlpaca',
-        showlegend: false
-    }
-
-    const dis_claudev1 = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.9103], y: [0.0322],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#EB7FB0' },
-        legendgroup: 'Claude-v1',
-        name: 'Claude-v1',
-    }
-
-    const dis_claudev2 = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.8762], y: [0.0321],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#E74C3C' },
-        legendgroup: 'Claude-v2',
-        name: 'Claude-v2',
-    }
-
-    const dis_gpt35 = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.8577], y: [0.0869],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#F39C12' },
-        legendgroup: 'GPT-3.5',
-        name: 'GPT-3.5',
-    }
-
-    const dis_gpt4 = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.9594], y: [0.0049],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#F7DC6F' },
-        legendgroup: 'GPT-4',
-        name: 'GPT-4',
-    }
-
-    const dis_clovax = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.7754], y: [0.0362],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#4EBA96' },
-        legendgroup: 'CLOVA-X',
-        name: 'CLOVA-X',
-    }
-
-    const dis_koalpaca = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.4247], y: [0.0252],
-        type: 'scatter', mode: 'markers',
-        marker: { size: 12, color: '#3498DB' },
-        legendgroup: 'KoAlpaca',
-        name: 'KoAlpaca',
-    }
-
-    const amb_max = {
-        x: [0, 1, 0.9], y: [1, 0, -0.1],
-        type: 'scatter', mode: 'lines',
-        line: { width: 2, color: '#A0A0A0', dash: 'dot' },
-        legendgroup: 'KoAlpaca',
-        name: 'max|diff-bias|',
-        showlegend: false
-    }
-
-    const dis_max = {
-        xaxis: 'x2', yaxis: 'y2',
-        x: [0.05, 0, 0.5, 1, 0.95], y: [-0.1, 0, 1, 0, -0.1],
-        type: 'scatter', mode: 'lines',
-        line: { width: 2, color: '#A0A0A0', dash: 'dot' },
-        name: 'max|diff-bias|',
-        showlegend: false
-    }
-
-    const data = [
-        amb_max, dis_max,
-        amb_claudev1, amb_claudev2, amb_gpt35, amb_gpt4, amb_clovax, amb_koalpaca,
-        dis_claudev1, dis_claudev2, dis_gpt35, dis_gpt4, dis_clovax, dis_koalpaca
+    const scatter_en = [
+        { xaxis: 'x1', yaxis: 'y1', x: 0.8868, y: 0.6228, color: '#f7c9aa', showlegend: false, model: 'Llama-3.3-70B-Instruct-Turbo' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9446, y: 0.6026, color: '#f6a47c', showlegend: false, model: 'gemini-2.0-flash-001' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9791, y: 0.5733, color: '#f47d57', showlegend: false, model: 'gpt-4o-2024-11-20' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.4265, y: 0.6405, color: '#ed503e', showlegend: false, model: 'claude-3-haiku-20240307' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.7701, y: 0.6345, color: '#d92847', showlegend: false, model: 'HCX-003' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9164, y: 0.6362, color: '#b91657', showlegend: false, model: 'gpt-4-turbo-2024-04-09' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.4851, y: 0.5966, color: '#921c5b', showlegend: false, model: 'HCX-DASH-001' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9688, y: 0.6866, color: '#691f55', showlegend: false, model: 'Qwen2.5-72B-Instruct-Turbo' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.3728, y: 0.6362, color: '#451c47', showlegend: false, model: 'gpt-3.5-turbo-0125' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9640, y: 0.5470, color: '#221331', showlegend: false, model: 'claude-3-5-sonnet-20241022' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0907, y: 0.1795, color: '#f7c9aa', showlegend: true, model: 'Llama-3.3-70B-Instruct-Turbo' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0446, y: 0.1690, color: '#f6a47c', showlegend: true, model: 'gemini-2.0-flash-001' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0192, y: 0.1610, color: '#f47d57', showlegend: true, model: 'gpt-4o-2024-11-20' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2912, y: 0.1565, color: '#ed503e', showlegend: true, model: 'claude-3-haiku-20240307' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.1519, y: 0.1517, color: '#d92847', showlegend: true, model: 'HCX-003' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0573, y: 0.1504, color: '#b91657', showlegend: true, model: 'gpt-4-turbo-2024-04-09' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2381, y: 0.1435, color: '#921c5b', showlegend: true, model: 'HCX-DASH-001' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0261, y: 0.1267, color: '#691f55', showlegend: true, model: 'Qwen2.5-72B-Instruct-Turbo' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2384, y: 0.1239, color: '#451c47', showlegend: true, model: 'gpt-3.5-turbo-0125' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0274, y: 0.1028, color: '#221331', showlegend: true, model: 'claude-3-5-sonnet-20241022' },
     ];
 
-    const layout = {
-        autosize: true,
-        grid: { rows: 1, columns: 2, pattern: 'independent' },
-        xaxis: { title: 'accuracy', range: [0, 1], dtick: 0.2 },
-        yaxis: { title: 'diff-bias<sub>A</sub>', range: [-0.1, 1], dtick: 0.2 },
-        xaxis2: { title: 'accuracy', range: [0, 1], dtick: 0.2 },
-        yaxis2: { title: 'diff-bias<sub>D</sub>', range: [-0.1, 1], dtick: 0.2 },
-        paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-        annotations: [
+    const scatter_ko = [
+        { xaxis: 'x1', yaxis: 'y1', x: 0.8668, y: 0.5332, color: '#f7c9aa', showlegend: false, model: 'gpt-4o-2024-11-20' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.8640, y: 0.4919, color: '#f6a47c', showlegend: false, model: 'claude-3-5-sonnet-20241022' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.8988, y: 0.5276, color: '#f47d57', showlegend: false, model: 'gemini-2.0-flash-001' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.8103, y: 0.5636, color: '#ed503e', showlegend: false, model: 'gpt-4-turbo-2024-04-09' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.7035, y: 0.5532, color: '#d92847', showlegend: false, model: 'HCX-003' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.9269, y: 0.6120, color: '#b91657', showlegend: false, model: 'Qwen2.5-72B-Instruct-Turbo' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.6309, y: 0.5605, color: '#921c5b', showlegend: false, model: 'Llama-3.3-70B-Instruct-Turbo' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.2017, y: 0.5973, color: '#691f55', showlegend: false, model: 'claude-3-haiku-20240307' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.4792, y: 0.5577, color: '#451c47', showlegend: false, model: 'HCX-DASH-001' },
+        { xaxis: 'x1', yaxis: 'y1', x: 0.2722, y: 0.5717, color: '#221331', showlegend: false, model: 'gpt-3.5-turbo-0125' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.1094, y: 0.2504, color: '#f7c9aa', showlegend: true, model: 'gpt-4o-2024-11-20' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.1126, y: 0.2422, color: '#f6a47c', showlegend: true, model: 'claude-3-5-sonnet-20241022' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0705, y: 0.2336, color: '#f47d57', showlegend: true, model: 'gemini-2.0-flash-001' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.1477, y: 0.2108, color: '#ed503e', showlegend: true, model: 'gpt-4-turbo-2024-04-09' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2035, y: 0.1881, color: '#d92847', showlegend: true, model: 'HCX-003' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.0556, y: 0.1851, color: '#b91657', showlegend: true, model: 'Qwen2.5-72B-Instruct-Turbo' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2753, y: 0.1842, color: '#921c5b', showlegend: true, model: 'Llama-3.3-70B-Instruct-Turbo' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.3979, y: 0.1672, color: '#691f55', showlegend: true, model: 'claude-3-haiku-20240307' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2411, y: 0.1512, color: '#451c47', showlegend: true, model: 'HCX-DASH-001' },
+        { xaxis: 'x2', yaxis: 'y2', x: 0.2872, y: 0.1256, color: '#221331', showlegend: true, model: 'gpt-3.5-turbo-0125' },
+    ];
+
+    function makeData({ scatterData }) {
+        return [
+            ...scatterData.map(({ xaxis, yaxis, x, y, color, showlegend, model }) => ({
+                xaxis: xaxis, yaxis: yaxis,
+                x: [x], y: [y],
+                type: 'scatter', mode: 'markers',
+                marker: { size: 12, color: color, line: {color: 'black', width: 1} },
+                showlegend: showlegend,
+                legendgroup: model,
+                name: model,
+            })),
             {
-              text: "Ambiguous",
-              showarrow: false,
-              x: 0.5, xref: "x domain",
-              y: 1.13, yref: "y domain",
-              font: { size: 17 }
+                xaxis: 'x1', yaxis: 'y1',
+                x: [0, 1], y: [0, 1],
+                type: 'scatter', mode: 'lines',
+                line: { width: 2, color: '#A0A0A0', dash: 'dot' },
+                name: 'y=x',
+                showlegend: false
             },
             {
-              text: "Disambiguated",
-              showarrow: false,
-              x: 0.5, xref: "x2 domain",
-              y: 1.13, yref: "y2 domain",
-              font: { size: 17 }
+                xaxis: 'x2', yaxis: 'y2',
+                x: [0, 1], y: [0, 1],
+                type: 'scatter', mode: 'lines',
+                line: { width: 2, color: '#A0A0A0', dash: 'dot' },
+                name: 'y=x',
+                showlegend: false
             }
-          ]
+        ];
     }
 
-    return <Section title="LLM Evaluation on KoBBQ">
+    function makeLayout({ title }) {
+        return {
+            autosize: true,
+            title: { text: title, x: 0 },
+            grid: { rows: 1, columns: 2, pattern: 'independent' },
+            xaxis: { title: 'acc_amb', range: [0, 1], dtick: 0.2 },
+            yaxis: { title: 'ntr_gen', range: [0, 1], dtick: 0.2 },
+            xaxis2: { title: 'bias_amb', range: [0, 1], dtick: 0.2 },
+            yaxis2: { title: 'bias_gen', range: [0, 1], dtick: 0.2 },
+            paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+            annotations: [
+                {
+                text: "Neutrality",
+                showarrow: false,
+                x: 0.5, xref: "x domain",
+                y: 1.13, yref: "y domain",
+                font: { size: 17 }
+                },
+                {
+                text: "Bias",
+                showarrow: false,
+                x: 0.5, xref: "x2 domain",
+                y: 1.13, yref: "y2 domain",
+                font: { size: 17 }
+                }
+            ],
+            legend: {
+                traceorder: 'normal',
+                y: 0.5
+            },
+        };
+    }
+
+    const data_en = makeData({
+        scatterData: scatter_en
+    });
+    const data_ko = makeData({
+        scatterData: scatter_ko
+    });
+    const layout_en = makeLayout({
+        title: 'EnBBG vs. EnBBQ'
+    });
+    const layout_ko = makeLayout({
+        title: 'KoBBG vs. KoBBQ'
+    });
+
+    const plotStyle = {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+    };
+
+    const plotContainerStyle = {
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+    };
+
+    return <Section title="Bias in Generation vs. Bias in QA">
         <p className="mb-4">
-        We evaluate state-of-the-art generative LLMs on KoBBQ.
-        Our evaluation encompasses accuracy and bias scores, ensuring a comprehensive assessment of the models&apos; inherent bias.
-        The accuracy represents the frequency of the model generating correct predictions,
-        while our bias score <span className="p-3 py-0.5 rounded-full bg-[#85c038] text-white">diff-bias</span> indicates the direction and the extent to which incorrect predictions are biased.
+            When comparing our BBG's results with the original BBQ's accuracy and bias scores in ambiguous contexts,
+            the bias scores in QA and generation tasks do not positively correlate, nor do the QA accuracy and neutral generation scores.
+            Language models exhibit different biases when evaluated in QA versus generation tasks.
         </p>
-        <Plot data={data} layout={layout} config={{responsive: true}} style={{width: "100%"}}/>
+        <div style={plotContainerStyle}>
+            <div style={plotStyle}>
+                <Plot data={data_en} layout={layout_en} config={{responsive: true}} style={{width: "100%"}}/>
+            </div>
+            <div style={plotStyle}>
+                <Plot data={data_ko} layout={layout_ko} config={{responsive: true}} style={{width: "100%"}}/>
+            </div>
+        </div>
+
+        
+        
+
     </Section>
 }

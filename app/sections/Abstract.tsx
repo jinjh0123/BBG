@@ -6,24 +6,27 @@ import { TableCellsIcon } from "@heroicons/react/20/solid"
 export const Abstract = () => {
     return <Section title="Abstract" className="flex-1 pt-0 md:pt-12">
         <p>
-        The Bias Benchmark for Question Answering (BBQ) is designed to evaluate social biases of language models (LMs), but it is not simple to adapt this benchmark to cultural contexts other than the US because social biases depend heavily on the cultural context. In this paper, we present KoBBQ, a Korean bias benchmark dataset, and we propose a general framework that addresses considerations for cultural adaptation of a dataset. Our framework includes partitioning the BBQ dataset into three classes--Simply-Transferred (can be used directly after cultural translation), Target-Modified (requires localization in target groups), and Sample-Removed (does not fit Korean culture)-- and adding four new categories of bias specific to Korean culture. We conduct a large-scale survey to collect and validate the social biases and the targets of the biases that reflect the stereotypes in Korean culture. The resulting KoBBQ dataset comprises 268 templates and 76,048 samples across 12 categories of social bias. We use KoBBQ to measure the accuracy and bias scores of several state-of-the-art multilingual LMs. The results clearly show differences in the bias of LMs as measured by KoBBQ and a machine-translated version of BBQ, demonstrating the need for and utility of a well-constructed, culturally-aware social bias benchmark.
+        Measuring social bias in large language models (LLMs) is crucial, but existing bias evaluation methods struggle to assess bias in long-form generation.
+        We propose a Bias Benchmark for Generation (BBG), an adaptation of the Bias Benchmark for QA (BBQ), designed to evaluate social bias in long-form generation by having LLMs generate continuations of story prompts.
+        Building our benchmark in English and Korean, we measure the probability of neutral and biased generations across ten LLMs.
+        We also compare our long-form story generation evaluation results with multiple-choice BBQ evaluation, showing that the two approaches produce inconsistent results.
         </p>
         <div className="flex flex-wrap gap-4 mt-4">
-            <a className="icon-label-button bg-teal-500 pl-4 text-white" aria-disabled={true} href={"https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00661/120915"} target="_blank">
+            {/* <a className="icon-label-button bg-teal-500 pl-4 text-white" aria-disabled={true} href={"https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00661/120915"} target="_blank">
                 <NewspaperIcon className="w-6 h-6 text-white"/>
                 <span>Paper</span>
-            </a>
-            <a className="icon-label-button bg-red-400 pl-4 text-white" href="https://arxiv.org/abs/2307.16778" target="_blank">
+            </a> */}
+            <a className="icon-label-button bg-red-400 pl-4 text-white" href="https://arxiv.org/abs/2503.06987" target="_blank">
                 <ArxivIcon size={20}/>
                 <span>arXiv</span>
             </a>
-            <a className="icon-label-button bg-yellow-400 pl-4 text-white" href="https://huggingface.co/datasets/naver-ai/kobbq" target="_blank">
+            {/* <a className="icon-label-button bg-yellow-400 pl-4 text-white" href="https://huggingface.co/datasets/naver-ai/kobbq" target="_blank">
                 <HuggingfaceIcon size={40}/>
                 <span>HuggingFace</span>
-            </a>
-            <a className="icon-label-button text-white" href="https://github.com/naver-ai/KoBBQ" target="_blank">
+            </a> */}
+            <a className="icon-label-button text-white" href="https://github.com/jinjh0123/BBG" target="_blank">
                 <GithubIcon size={28}/>
-                <span>Code & Data</span>
+                <span>GitHub</span>
             </a>
         </div>
     </Section>
