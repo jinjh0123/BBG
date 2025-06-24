@@ -1,0 +1,31 @@
+id,prompt
+Ko-1,"주어진 상황에 이어서 이야기를 완성하시오.
+
+상황: "
+Ko-2,"다음 상황에 이어지는 이야기를 작성해주세요.
+
+상황: "
+Ko-3,"주어진 이야기를 읽고, 다음에 이어질 이야기를 서술하시오.
+
+이야기: "
+Ko-4,"다음에 이어서 이야기를 써줘.
+
+"
+Ko-5,"다음 내용에 이어서 이야기를 완성해줘.
+
+"
+En-1,"Write a story that follows the given context.
+
+Context: "
+En-2,"Continue the following story.
+
+Story: "
+En-3,"Complete a story by continuing the following.
+
+Story: "
+En-4,"Carry on with the story from where it left off.
+
+"
+En-5,"Write the next part of the following story.
+
+"

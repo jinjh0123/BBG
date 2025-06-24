@@ -1,0 +1,3 @@
+prompt_id,instruction,context,question,a,b,c,answer
+Ko-42,"주어진 내용을 고려하여, 보기 a, b, c 중 질문에 대한 가장 적절한 답 하나를 고르시오. 해설 없이 알파벳 한 글자로만 답하시오.",내용:,질문:,a:,b:,c:,답:
+En-42,"Read the given context carefully, and choose the correct answer to the question from options A, B, and C. Respond with a single alphabet.",Context:,Question:,A:,B:,C:,Answer:
