@@ -27,22 +27,80 @@ We then assess bias in the generated output by determining whether the placehold
 - `all`: Exhaustive. Contains all possible combinations that can be created from each template. Use for full-scale analysis.
 - `eval`: Lightweight. Contains exactly one randomly selected instantiation per template. Recommended for standard benchmarking.
 
+### Data Build
+```bash
+cd code
+python _1_build_data.py --en --gen-context
+python _1_build_data.py --ko --gen-context
+```
+
+```bash
+cd code
+python _1_build_data.py \
+    --ko \                                      # language: --ko or --en
+    --all \                                     # flag for data split: if set, all; if not, eval
+    --gen-context \                             # flag for generating context column: if set, generate context by concatenating amb_context and obfdis_context; if not, skip for reducing file size
+    --random-seed 42 \                          # seed for 1) sampling fillers from each template for building eval set and 2) shuffling answer options for MRC
+    --prompt-unk-path ./utils/prompt_unk.csv \  # path to csv file containing expressions for unknown option of MCQ
+    --prompt-unk-id Ko-42 \                     # id for unknown option
+    --output-dir ../data                        # output directory
+```
+
 
 ## Evaluation
+```bash
+cd code
+vi utils/info.json
+```
 ### Bias in Generation
 - **Step 1: Generation**
   - Let the target model generate a continuation of the seed story.
   - Input: `context` (`amb_context` + `obfdis_context`)
+  ```bash
+  python _2_generate.py \
+      --data-path ../data/KoBBG_eval.csv \
+      --instruction-path utils/prompt_gen.csv \
+      --instruction-id Ko-1 \
+      --model gpt-4o-2024-11-20  \
+      --output-dir outputs
+  ```
 - **Step 2: QA**
   - Let the evaluator model answer the reading comprehension question.
   - Input:
     - Passage: `context` + generated text from Step 1
     - Multiple-choice QA: `question`, `choices`
+  ```bash
+  python _3_qa.py \
+      --ko \
+      --data-path ../data/KoBBG_eval.csv \
+      --generation-result-path outputs/KoBBG_eval_gen_gpt-4o-2024-11-20_Ko-1.csv \
+      --qa-model gpt-4-0613 \
+      --output-dir outputs
+  ```
 - **Step 3: Evaluation**
   - Based on the answer from Step 2, calculate the neutrality and bias scores.
   - Type:
     - Undetermined: Cannot be determined, 주어진 정보만으로는 답을 알 수 없음
     - Biased: `biased_answer`
+  ```bash
+  python _4_evaluate.py \
+      --gen \
+      --ko \
+      --data-path ../data/KoBBG_eval.csv \
+      --qa-result-path outputs/KoBBG_eval_gen_gpt-4o-2024-11-20_Ko-1_qa_gpt-4-0613_Ko-42.csv \
+      --output-dir outputs
+  ```
+- (Optional) **Step 4: Qualitative Analysis**
+  ```bash
+  python _5_qualitative.py \
+      --ko \
+      --data-path ../data/KoBBG_eval.csv \
+      --gen-result-path outputs/KoBBG_eval_gen_gpt-4o-2024-11-20_Ko-1.csv \
+      --qa-result-path outputs/KoBBG_eval_gen_gpt-4o-2024-11-20_Ko-1_qa_gpt-4-0613_Ko-42.csv \
+      --qa-unk-path ./utils/prompt_unk.csv \
+      --qa-unk-id Ko-42 \
+      --result-dir outputs
+  ```
 
 ### Bias in QA (original BBQ setting)
 - **Step 1: QA**
@@ -52,12 +110,27 @@ We then assess bias in the generated output by determining whether the placehold
       - Ambiguous context: `amb_context`
       - Disambiguated context: `amb_context` + `dis_context`
     - Multiple-choice QA: `question`, `choices`
+  ```bash
+  python _3_qa.py \
+      --ko \
+      --data-path ../data/KoBBG_eval.csv \
+      --qa-model gpt-3.5-turbo-0125 \
+      --output-dir outputs
+  ```
 - **Step 2: Evaluation**
   - Based on the answer from Step 1, calculate the accuracy and bias scores.
   - Type:
     - Correct answer for ambiguous contexts: undetermined (Cannot be determined, 주어진 정보만으로는 답을 알 수 없음)
     - Correct answer for disambiguated contexts: `dis_answer`
     - Biased answer: `biased_answer`
+  ```bash
+  python _4_evaluate.py \
+      --qa \
+      --ko \
+      --data-path ../data/KoBBG_eval.csv \
+      --qa-result-path outputs/KoBBG_eval_qa_gpt-4o-2024-11-20_Ko-42.csv \
+      --output-dir outputs
+  ```
 
 
 ## BibTex
