@@ -57,6 +57,12 @@ python _1_build_data.py \
 
 
 ## Evaluation
+We release the code for evaluating the social bias of LLMs in both generation tasks (using BBG) and question-answering tasks (using BBQ).
+To run model inference, you must first specify the necessary configuration details such as the API key in `code/utils/info.json`.
+Below, we provide example commands for evaluating the `gpt-4o-2024-11-20` model on the Korean datasets.
+To evaluate on English datasets, simply replace `ko` with `en` and `Ko` with `En` in the commands.
+To change the model, modify the corresponding argument.
+If you want to use custom prompts, edit the appropriate `code/utils/prompt_*.csv` file and update the prompt path and id arguments accordingly.
 ```bash
 cd code
 vi utils/info.json
@@ -123,7 +129,7 @@ vi utils/info.json
   python _3_qa.py \
       --ko \
       --data-path ../data/KoBBG_eval.csv \
-      --qa-model gpt-3.5-turbo-0125 \
+      --qa-model gpt-4o-2024-11-20 \
       --output-dir outputs
   ```
 - **Step 2: Evaluation**
