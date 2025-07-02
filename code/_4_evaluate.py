@@ -189,8 +189,8 @@ def evaluate(df_data, df_qa, unk, gen_or_qa, eval_result_path):
         if gen_or_qa == "gen":
             evaluate_function = evaluate_gen
             writer.writerow([
-                "category", "ntr_gen", "bsd_gen",
-                "unk_2", "bsd_2", "cnt_2", "bsd_1_cnt_1", "unk_1_bsd_1", "unk_1_cnt_1",
+                "category", "ntr_gen", "bias_gen",
+                "p_uu", "p_bb", "p_cc", "p_bc + p_cb", "p_bu + p_ub", "p_cu + p_uc",
             ])
         elif gen_or_qa == "qa":
             evaluate_function = evaluate_qa
