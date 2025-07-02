@@ -15,25 +15,34 @@ We also compare our long-form story generation evaluation results with multiple-
 
 ## Dataset
 We propose the Bias Benchmark for Generation (BBG), a benchmark for assessing bias in story generation, built on the English BBQ and Korean BBQ (KoBBQ) datasets.
-To adapt the existing multiple-choice format of BBQ for long-form generation, we first obfuscate contextual data by replacing character references with neutral placeholders ('one' and 'the other') and prompt the language model to generate a continuation of the story.
+To adapt the existing multiple-choice format of BBQ for long-form generation, we first obfuscate each story by replacing character references with neutral placeholders ('one' and 'the other') and prompt the language model to generate a continuation of the story.
 We then assess bias in the generated output by determining whether the placeholders are consistently assigned to specific characters using machine reading comprehension.
 <img src="img/overview.svg">
 
 ### Languages
 - English
+    - `data/EnBBG_*.csv`
 - Korean
+    - `data/KoBBG_*.csv`
 
 ### Data Splits
+- `templates`
+    - `data/*_templates.csv`
 - `all`: Exhaustive. Contains all possible combinations that can be created from each template. Use for full-scale analysis.
+    - `data/*_all.csv`
 - `eval`: Lightweight. Contains exactly one randomly selected instantiation per template. Recommended for standard benchmarking.
+    - `data/*_eval.csv`
 
 ### Data Build
+We support the generation of both BBQ and BBG datasets through a unified template-based approach. By modifying the original BBQ and KoBBQ templates, we enable the creation of both formats from a single template provided in our repository (`data/*_templates.csv`).
+- BBQ: Fill the placeholders (e.g., [N1], [N2], [W1], [W2]) in the templates with the provided fillers.
+- BBG: Fill the placeholders in the same way as BBQ, but replace [N1] and [N2] in the `Disambiguating_context` with 'one'/'한 (사람)' and 'the other'/'다른 한 (사람)', respectively.
 ```bash
 cd code
-python _1_build_data.py --en --gen-context
-python _1_build_data.py --ko --gen-context
+python _1_build_data.py --en --gen-context  # EnBBG_eval.csv
+python _1_build_data.py --ko --gen-context  # KoBBG_eval.csv
 ```
-
+If you want to build data of `all` split or customize the random seed or unknown expression, you can use the following command.
 ```bash
 cd code
 python _1_build_data.py \
