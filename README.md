@@ -17,7 +17,7 @@ We also compare our long-form story generation evaluation results with multiple-
 We propose the Bias Benchmark for Generation (BBG), a benchmark for assessing bias in story generation, built on the English BBQ and Korean BBQ (KoBBQ) datasets.
 To adapt the existing multiple-choice format of BBQ for long-form generation, we first obfuscate contextual data by replacing character references with neutral placeholders ('one' and 'the other') and prompt the language model to generate a continuation of the story.
 We then assess bias in the generated output by determining whether the placeholders are consistently assigned to specific characters using machine reading comprehension.
-<img src="img/bbg_framework.svg">
+<img src="img/overview.svg">
 
 ### Languages
 - English
