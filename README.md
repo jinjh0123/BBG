@@ -106,7 +106,7 @@ vi utils/info.json
       --output-dir outputs
   ```
 - (Optional) **Step 4: Qualitative Analysis**
-  - To facilitate qualitative analysis, integrate the input and output from both generation and QA tasks, along with pertinent information including generation type.
+  - To facilitate qualitative analysis, integrate the input and output from both generation and QA steps, along with pertinent information including generation type.
   ```bash
   python _5_qualitative.py \
       --ko \
