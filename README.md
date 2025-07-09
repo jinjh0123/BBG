@@ -42,6 +42,9 @@ cd code
 python _1_build_data.py --en --gen-context  # EnBBG_eval.csv
 python _1_build_data.py --ko --gen-context  # KoBBG_eval.csv
 ```
+
+In the `data` directory, `EnBBG_eval.csv` was created using a random seed of 42. `KoBBG_eval.csv` was generated using the same fillers as the KoBBQ evaluation set. In our paper, we reported experimental results using five versions of the evaluation sets, which include the aforementioned sets and versions generated with random seeds 1, 2, 3, and 4. These can be replicated by running `code/_1_build_data.py`.
+
 If you want to build data of `all` split or customize the random seed or unknown expression, you can use the following command.
 ```bash
 cd code
