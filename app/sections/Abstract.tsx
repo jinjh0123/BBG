@@ -1,7 +1,6 @@
 import { Section } from "../components/Section"
-import { ArxivIcon, GithubIcon, HuggingfaceIcon } from "../components/icons"
-import { NewspaperIcon } from "@heroicons/react/20/solid"
-import { TableCellsIcon } from "@heroicons/react/20/solid"
+import { AclIcon, ArxivIcon, GithubIcon, HuggingfaceIcon } from "../components/icons"
+
 
 export const Abstract = () => {
     return <Section title="Abstract" className="flex-1 pt-0 md:pt-12">
@@ -12,18 +11,18 @@ export const Abstract = () => {
         We also compare our long-form story generation evaluation results with multiple-choice BBQ evaluation, showing that the two approaches produce inconsistent results.
         </p>
         <div className="flex flex-wrap gap-4 mt-4">
-            {/* <a className="icon-label-button bg-teal-500 pl-4 text-white" aria-disabled={true} href={"https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00661/120915"} target="_blank">
-                <NewspaperIcon className="w-6 h-6 text-white"/>
+            <a className="icon-label-button bg-red-300 pl-4 text-white" href="https://aclanthology.org/2025.findings-acl.585/" target="_blank">
+                <AclIcon size={30}/>
                 <span>Paper</span>
-            </a> */}
+            </a>
             <a className="icon-label-button bg-red-400 pl-4 text-white" href="https://arxiv.org/abs/2503.06987" target="_blank">
                 <ArxivIcon size={20}/>
                 <span>arXiv</span>
             </a>
-            {/* <a className="icon-label-button bg-yellow-400 pl-4 text-white" href="https://huggingface.co/datasets/naver-ai/kobbq" target="_blank">
+            <a className="icon-label-button bg-[#FFD21E] pl-4 text-white" href="https://huggingface.co/datasets/jinjh0123/bbg" target="_blank">
                 <HuggingfaceIcon size={40}/>
-                <span>HuggingFace</span>
-            </a> */}
+                <span>HF</span>
+            </a>
             <a className="icon-label-button text-white" href="https://github.com/jinjh0123/BBG" target="_blank">
                 <GithubIcon size={28}/>
                 <span>GitHub</span>
