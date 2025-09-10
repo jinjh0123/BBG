@@ -154,13 +154,17 @@ vi utils/info.json
 
 ## BibTex
 ```
-@misc{jin2025socialbiasbenchmarkgeneration,
-  title={Social Bias Benchmark for Generation: A Comparison of Generation and QA-Based Evaluations},
-  author={Jiho Jin and Woosung Kang and Junho Myung and Alice Oh},
-  year={2025},
-  eprint={2503.06987},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/2503.06987}
+@inproceedings{jin-etal-2025-social,
+    title = "Social Bias Benchmark for Generation: A Comparison of Generation and {QA}-Based Evaluations",
+    author = "Jin, Jiho  and  Kang, Woosung  and  Myung, Junho  and  Oh, Alice",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2025",
+    month = jul,
+    year = "2025",
+    address = "Vienna, Austria",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-acl.585/",
+    doi = "10.18653/v1/2025.findings-acl.585",
+    pages = "11215--11228",
+    ISBN = "979-8-89176-256-5"
 }
 ```
